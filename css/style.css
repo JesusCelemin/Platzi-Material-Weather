@@ -1,9 +1,56 @@
-* {
-    box-sizing: border-box;
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?-dm981l');
+    src:url('../fonts/icomoon.eot?#iefix-dm981l') format('embedded-opentype'),
+        url('../fonts/icomoon.woff?-dm981l') format('woff'),
+        url('../fonts/icomoon.ttf?-dm981l') format('truetype'),
+        url('../fonts/icomoon.svg?-dm981l#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1.2;
+
+
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-droplet:before {
+    content: "\e90b";
+    margin-right: .2em;
+}
+
+.icon-arrow-up2:before {
+    content: "\ea3a";
+    margin-right: .2em;
+}
+
+.icon-arrow-down2:before {
+    content: "\ea3e";
+    margin-right: .2em;
+}
+
+.icon-wind:before {
+    content: "\e600";
+    margin-right: .2em;
+}
+
+
+
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     padding:0;
     margin:0;
     background-color: #eeeeee;
@@ -22,7 +69,7 @@ input[type="submit"] {
 * Botones
 */
 .btn {
-    display : inline-block;
+    position: relative;
     line-height : 1;
     color : white;
     text-align: center;
@@ -35,7 +82,7 @@ input[type="submit"] {
     cursor : pointer;
     margin: 0;
     margin-left: 2px;
-    padding: 1rem;
+    padding: .8rem;
     border-radius: 1px;
 }
 
@@ -44,17 +91,21 @@ input[type="submit"] {
 */
 .main-header {
     text-align: center;
-    background-color: #2196f3;
+    background-color: #3F51B5;
     color: white;
     padding: 1rem;
+    border-top: 20px solid #303F9F;
+
 }
 
     .main-header h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin: 0;
+
     }
+
     .main-header h2 {
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: normal;
     }
 
@@ -68,14 +119,15 @@ input[type="submit"] {
     display: -ms-flexbox;
     display: flex;
     padding: auto;
-    font-size: 2rem;
+    font-size: 1rem;
+    display: none;
 }
 
-    .search__text {
-        width: 100%;
-        font-size: 1.5rem;
-        padding: 1rem;
-    }
+.search__text {
+    width: 60%;
+    font-size: 1rem;
+    padding: .5rem;
+}
 
 /*
  * Loader
@@ -95,11 +147,13 @@ input[type="submit"] {
   left: -200px;
   width: 200px;
   height: 4px;
-  background-color: #2980b9;
+  background-color: #303F9F;
   animation: loading 2s linear infinite;
   -webkit-animation: loading 2s linear infinite;
 
 }
+
+
 
 @keyframes loading {
     from {left: -200px; width: 30%;}
@@ -110,7 +164,7 @@ input[type="submit"] {
     to {left: 100%;}
 }
 @-webkit-keyframes loading {
-        from {left: -200px; width: 30%;}
+    from {left: -200px; width: 30%;}
     50% {width: 30%;}
     70% {width: 70%;}
     80% { left: 50%;}
@@ -122,22 +176,195 @@ input[type="submit"] {
 * Estilizamos el módulo de las cards, cada resumen de tiempo de
 * las ciudades
 */
+.cards__group {
+    margin: 0;
+    -webkit-transform: translateZ(0);
+    -webkit-transition: box-shadow 0.25s ease-in;
+}
 .card {
-    position: relative;
-    height: 25vh;
-    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 15rem;
+    width: 100%;
     background-color: white;
-    background-size: cover;
-    background-position:center;
     color: white;
-    text-shadow: 0 0 3px black;
-    font-family: 'Lato', cursive;
-    padding: 1.5em;
-    margin-bottom: .5em;
+    font-family: 'Roboto', sans-serif;   
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-transition: all 400ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    margin-top: 4px; 
 
 }
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card__info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #3F51B5;
+    width: 100%;
+    height: 
+}
+
+.card__image {
+    align-self: center;
+    width: 12rem;
+    margin: 0;
+}
+
+.card__descr {
+    flex: none;
+    align-self: center;
+    color: white;
+    margin: 0;
+
+}
+
+.data__current {
+    flex-direction: column;  
+}
+
+.card__maxt::after {
+    content: "ºC"
+}
+
+.card__mint::after {
+    content: "ºC"
+}
+
+.card__humi::after {
+    content: "%";
+}
+
+.card__wind::after {
+    content: "mps";
+}
+
+.card__temp {
+    align-self: center;
+    font-size: 2.5em;
+}
+
+.card__items {
+    align-self: center;
+    list-style-type: none;
+    font-size: 1.3em; 
+    border-left: 1px solid #fff;
+    margin-left: 2em;
+    margin-right: 2.5em;
+    padding-left: 1em;
+
+
+}
+ .card__header {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    align-items: center;
+ }
+
+ .card__time {
+    font-size: 3.2em;
+    margin: 0;
+    
+ }
+ .card__title {
+    font-size: 1.8em;
+    margin: .2em;
+
+ }
+ .circle{
+    width: 56px;
+    height: 56px;
+    background-color: #ff4081;
+    border-radius: 50%;
+    position: absolute;
+    top: 520px;
+    right: 20px;
+    box-shadow: 1px 1px 8px #333333;
+    text-align: center;
+    font-size: 2em;
+    line-height: 56px;
+    -webkit-animation: bounceIn 1s ;
+    animation: bounceIn 1s ;
+ }
+ .circle:before {
+    content: '+';
+    display: inline-block;
+    color: white;
+    z-index: 500;
+ }
+ .out {
+    -webkit-animation: bounceOut 1s ease-in-out;
+    animation: bounceOut 1s ease-in-out;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+ .rotated {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+@media screen and (min-width: 768px) {
+    .main-header{
+        padding: 2rem;
+    }
+    .main-header h1{
+        font-size: 2.5rem;
+    }
+    .main-header h2{
+        font-size: 1.5rem;
+    }
+    .card {
+        flex-direction: row;
+        height: 10rem;
+    }
+    .card__header {
+        width: 40%;
+    }
+    .card__time {
+        font-size: 5em;
+        margin-top: .2em;
+    }
+    .card__title {
+        font-size: 2.5em;
+        margin: 1em;
+    }
+    .card__items {
+        font-size: 1.5em;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -2,40 +2,49 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>Platzi M. Weather</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<header class="main-header">
-		<h1>Platzi Material Weather</h1>
+		<h1>Platzi Weather</h1>
 		<h2>The best way to know the weather in your city</h2>
 	</header>
 	<div class="loader">
+		
 	</div>
 	<form action="" class="search">
 		<input type="text" data-input="cityAdd" class="search__text" placeholder="Add a new City">
 		<input type="submit" data-button="add" class="search__btn btn" value="Add">
-		<button data-saved-cities class="search__btn btn">View Cities</button>
+		<button data-saved-cities class="search__btn btn">Cities</button>
 	</form>
 	<main class="cards-group">
-		<div class="card">
-			<header class="card__header">
-				<h2 class="card__time"></h2>
-				<h3 class="card__title"></h3>
-			</header>
-			<div class="card__info">
-				<img src="" alt="" class="card__image">
-				<h3 class="card__temp"></h3>
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+		<template id="template--city">
+			<div class="card">
+				<div class="card__info">
+					<img data-icon src="" alt="" class="card__image">
+					<div class="card__current">
+						<span data-temp="current" class="card__temp"></span>
+					<h2 data-title class="card__descr"></h2>
+					</div>
+					<ul class="card__items">
+						<li data-temp="wind" class="card__wind icon-wind"></li>
+						<li data-temp="max" class="card__maxt icon-arrow-up2"></li>
+						<li data-temp="min" class="card__mint icon-arrow-down2"></li>
+						<li data-temp="humi" class="card__humi icon-droplet"></li>
+					</ul>
+				</div>
+				<div class="card__header">
+					<h2 data-time class="card__time"></h2>
+					<h3 data-city class="card__title"></h3>
+				</div>
 			</div>
-		</div>
-		
-	</main>
+		</template>		
+	</main>	
+	<span class="circle"></span>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js/index.js"></script>
 </body>
 </html>
