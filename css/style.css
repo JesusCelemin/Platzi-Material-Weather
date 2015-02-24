@@ -18,8 +18,6 @@
     text-transform: none;
     line-height: 1.2;
 
-
-
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -49,11 +47,11 @@
 
 
 body {
+    background-color: #eeeeee;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    padding:0;
     margin:0;
-    background-color: #eeeeee;
+    padding:0;
 }
 
 /*
@@ -69,91 +67,93 @@ input[type="submit"] {
 * Botones
 */
 .btn {
-    position: relative;
-    line-height : 1;
-    color : white;
-    text-align: center;
-    vertical-align : middle;
-    font-size: .8rem;
-    white-space:nowrap;
     background-color : #ff4081;
     border : none;
-    font-weight: bold;
-    cursor : pointer;
-    margin: 0;
-    margin-left: 2px;
-    padding: .8rem;
     border-radius: 1px;
+    color : white;
+    cursor : pointer;
+    font-size: .8rem;
+    font-weight: bold;
+    line-height : 1;
+    margin-left: 2px;
+    margin: 0;
+    padding: .8rem;
+    position: relative;
+    text-align: center;
+    vertical-align : middle;
+    white-space:nowrap;
 }
 
 /*
 * Header Styles
 */
 .main-header {
-    text-align: center;
     background-color: #3F51B5;
+    border-top: 20px solid #303F9F;
     color: white;
     padding: 1rem;
-    border-top: 20px solid #303F9F;
+    text-align: center;
 
 }
 
-    .main-header h1 {
-        font-size: 2rem;
-        margin: 0;
+.main-header h1 {
+    font-size: 2rem;
+    margin: 0;
 
-    }
+}
 
-    .main-header h2 {
-        font-size: 1rem;
-        font-weight: normal;
-    }
+.main-header h2 {
+    font-size: 1rem;
+    font-weight: normal;
+}
 
 /*
 * Módulo .search
 */
 .search {
-    display: -webkit-box;
-    display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
     display: flex;
-    padding: auto;
-    font-size: 1rem;
     display: none;
+    font-size: 1rem;
+    justify-content: space-between;
+    padding: 0;
 }
 
-.search__text {
+.search__text { 
     width: 60%;
     font-size: 1rem;
     padding: .5rem;
+}
+.search__btn {
+    right: auto;
 }
 
 /*
  * Loader
  */
  .loader {
-  height: 4px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
   background-color: #ddd;
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 
 }
 .loader:before{
-  display: block;
-  position: absolute;
-  content: "";
-  left: -200px;
-  width: 200px;
-  height: 4px;
   background-color: #303F9F;
+  content: "";
+  display: block;
+  height: 4px;
+  left: -200px;
+  position: absolute;
+  width: 200px;
   animation: loading 2s linear infinite;
   -webkit-animation: loading 2s linear infinite;
 
 }
-
-
 
 @keyframes loading {
     from {left: -200px; width: 30%;}
@@ -172,9 +172,8 @@ input[type="submit"] {
     to {left: 100%;}
 }
 
- /*
-* Estilizamos el módulo de las cards, cada resumen de tiempo de
-* las ciudades
+/*
+* Template para las cards
 */
 .cards__group {
     margin: 0;
@@ -182,19 +181,19 @@ input[type="submit"] {
     -webkit-transition: box-shadow 0.25s ease-in;
 }
 .card {
-    display: flex;
-    flex-direction: column;
-    height: 15rem;
-    width: 100%;
     background-color: white;
+    box-sizing: border-box;
     color: white;
+    display: flex;
+    flex-direction: column; 
     font-family: 'Roboto', sans-serif;   
-    -webkit-box-sizing: border-box;
+    margin-top: 4px; 
+    overflow: hidden;
+    width: 100%;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     -webkit-transition: all 400ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
-    margin-top: 4px; 
 
 }
 .card:hover {
@@ -202,30 +201,28 @@ input[type="submit"] {
 }
 
 .card__info {
-    display: inline-flex;
     align-items: center;
-    justify-content: space-around;
     background-color: #3F51B5;
+    display: inline-flex;
+    justify-content: space-around;
+    overflow: hidden;
     width: 100%;
-    height: 
 }
 
 .card__image {
     align-self: center;
-    width: 12rem;
     margin: 0;
-}
-
-.card__descr {
-    flex: none;
-    align-self: center;
-    color: white;
-    margin: 0;
-
+    width: 12em;
 }
 
 .data__current {
     flex-direction: column;  
+}
+
+.card__descr {
+    align-self: center;
+    color: white;
+    margin: 0;
 }
 
 .card__maxt::after {
@@ -249,22 +246,25 @@ input[type="submit"] {
     font-size: 2.5em;
 }
 
+.card__temp::after {
+    content: "º";
+}
+
 .card__items {
     align-self: center;
-    list-style-type: none;
-    font-size: 1.3em; 
     border-left: 1px solid #fff;
+    font-size: 1.3em; 
+    list-style-type: none;
     margin-left: 2em;
     margin-right: 2.5em;
     padding-left: 1em;
-
-
 }
+
  .card__header {
+    align-items: center;
+    color: black;
     display: flex;
     flex-direction: column;
-    color: black;
-    align-items: center;
  }
 
  .card__time {
@@ -274,42 +274,32 @@ input[type="submit"] {
  }
  .card__title {
     font-size: 1.8em;
-    margin: .2em;
+    margin: 0;
 
  }
+/*
+* Botón material
+*/
  .circle{
-    width: 56px;
-    height: 56px;
     background-color: #ff4081;
     border-radius: 50%;
-    position: absolute;
-    top: 520px;
-    right: 20px;
+    bottom: 50px;
     box-shadow: 1px 1px 8px #333333;
-    text-align: center;
     font-size: 2em;
+    height: 56px;
     line-height: 56px;
-    -webkit-animation: bounceIn 1s ;
-    animation: bounceIn 1s ;
+    position: fixed;
+    right: 20px;
+    text-align: center;
+    width: 56px;
  }
  .circle:before {
+    color: white;
     content: '+';
     display: inline-block;
-    color: white;
     z-index: 500;
  }
- .out {
-    -webkit-animation: bounceOut 1s ease-in-out;
-    animation: bounceOut 1s ease-in-out;
-
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
- .rotated {
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-
+ 
 @media screen and (min-width: 768px) {
     .main-header{
         padding: 2rem;
@@ -320,6 +310,12 @@ input[type="submit"] {
     .main-header h2{
         font-size: 1.5rem;
     }
+    .search {
+        width: 100%;
+    }
+    .search__text {
+        width: 80%;
+    }
     .card {
         flex-direction: row;
         height: 10rem;
@@ -329,16 +325,15 @@ input[type="submit"] {
     }
     .card__time {
         font-size: 5em;
-        margin-top: .2em;
+        
     }
     .card__title {
         font-size: 2.5em;
-        margin: 1em;
+        
     }
     .card__items {
         font-size: 1.5em;
     }
-
 }
 
 
